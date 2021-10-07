@@ -24,9 +24,9 @@
   		waitTime.disabled=true
   		let cd = cooldown.value
   		const wait = waitTime.value
-    		waitDisp.innerHTML = wait
-    		stackDisp.innerHTML = 0
-    		timerDisp.innerHTML = cd
+    		waitDisp.innerHTML = `${wait} 초 뒤 시작`
+    		stackDisp.innerHTML = `0 스택입니다`
+        timerDisp.innerHTML = `쿨타임: ${cd}초`
   		let alarm = new Audio('alarm.mp3')
   		if(wait == 0){
     		alarm.play()
@@ -37,25 +37,21 @@
     		let timerCal
 
     		if (wait > timePassed){
-      		waitCal = wait - timePassed
+          waitCal = wait - timePassed
+          stackCal = 0
+          timerCal = 0
+          waitDisp.innerHTML = `${waitCal} 초 뒤 시작`
+          timerDisp.innerHTML = `쿨타임: ${cd}초`
     		}else{
-      		waitCal = 0
-    		}
-
-    		if (wait > timePassed){
-      		stackCal = 0
-    		}else{
-      		stackCal = ((timePassed - wait) - ((timePassed - wait) % cd)) / cd + 1
-    		}
-
-    		if (wait > timePassed){
-      		timerCal = 0
-    		}else{
-      		timerCal = -1 * (((timePassed - wait) % cd) - cd)
-    		}
-    		waitDisp.innerHTML = waitCal
-    		stackDisp.innerHTML = stackCal
-    		timerDisp.innerHTML = timerCal
+          waitCal = 0
+          stackCal = ((timePassed - wait) - ((timePassed - wait) % cd)) / cd + 1
+          timerCal = -1 * (((timePassed - wait) % cd) - cd)
+          waitDisp.innerHTML = `이미 시작했습니다`
+          timerDisp.innerHTML = `${timerCal} 초 뒤 다음 스택`
+        }
+        
+    		stackDisp.innerHTML = `${stackCal} 스택입니다`
+    		
     		timePassed++
     		if(timerCal == cd){
       		alarm.play()
@@ -83,8 +79,8 @@
       		waitTime.disabled = false
     		}   
     		timePassed = 1
-    		waitDisp.innerHTML = "waiting"
-    		stackDisp.innerHTML = "stack"
-    		timerDisp.innerHTML = "timer"
+    		waitDisp.innerHTML = "시작 대기"
+    		stackDisp.innerHTML = "0 스택"
+    		timerDisp.innerHTML = "다음 스택까지"
 		}
 		}

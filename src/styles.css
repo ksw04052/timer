@@ -10,3 +10,11 @@ label{
   display:inline-block;
   width:100px;
 }
+
+p{
+  text-align:center;
+}
+
+div{
+  text-align:center;
+}
