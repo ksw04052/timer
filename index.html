@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Timer</title>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<form>
+		<label><input type="radio" name="cdRadio" id="default25" value="default25" onclick="this.form.cooldown.disabled=true;this.form.cooldown.value=25" checked>기본 25초</label>
+		<label><input type="radio" name="cdRadio" id="customCd" value="customCd" onclick="this.form.cooldown.disabled=false">직접 입력</label>
+		<input type="number" name="cooldown" id="cooldown" min="10" max="30" value="25" disabled>
+		<br>
+		<label><input type="radio" name="waitRadio" id="default0" value="default0" onclick="this.form.waitTime.disabled=true;this.form.waitTime.value=0" checked>바로 시작</label>
+		<label><input type="radio" name="waitRadio" id="customWait" value="customWait" onclick="this.form.waitTime.disabled=false">직접 입력</label>
+		<input type="number" name="waitTime" id="waitTime" min="0" value="0" disabled>
+	</form>
+	<br>
+	<button type="submit" id="start">시작</button>
+	<button type="submit" id="stop">종료</button>
+	<br>
+	<p id="waitDisp">waiting</p>
+	<p id="stackDisp">stack</p>
+	<p id="timerDisp">timer</p>
+	<script src="src/index.js">
+	</script>
+</body>
+
+</html>
