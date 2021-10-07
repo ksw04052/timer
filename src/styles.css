@@ -1,3 +1,12 @@
 body {
   font-family: sans-serif;
 }
+
+input[type=number]{
+  width:80px;
+}
+
+label{
+  display:inline-block;
+  width:100px;
+}
